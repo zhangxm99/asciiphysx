@@ -28,6 +28,8 @@ void CalculateAcceleration(position* p,double* mass,acceleration* a,int Numbers)
         }
         a[i].ax = ai_x;
         a[i].ay = ai_y;
+        ai_x = 0;
+        ai_y = 0;
     }
 }
 void CalculateVelocity(velocity* v,acceleration* a){
