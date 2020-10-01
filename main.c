@@ -36,6 +36,7 @@ int main(void){
 
 
     //Start calculate
+    printf("\e[?25l");  //cancel cursor
     int count = 0;
     while(1){
         CalculateAcceleration(p,mass,a,Numbers);
