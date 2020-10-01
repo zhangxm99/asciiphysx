@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <curses.h>
 #include "iterationcalculation.h"
 #define half_length 30 //half screen length
 #define half_height 15  //half screen height
@@ -38,5 +37,5 @@ void plot(position* p,int Numbers){
             fflush(stdout);
         }
     }
-    refresh();
+    printf("\e[1;1H\e[2J"); //clear screen
 }
