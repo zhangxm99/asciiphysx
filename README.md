@@ -1,5 +1,5 @@
 # asciiphysx
-Using pure console to simulate the movement of objects.
+Using pure console to simulate the movement of astronomical objects.
 
 ## Overview
 <img src="https://github.com/zhangxm99/asciiphysx/blob/master/introduction.gif" width=356 height=298 />
