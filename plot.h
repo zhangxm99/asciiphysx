@@ -20,11 +20,15 @@ void coordinatechange(position* p,velocity* v,int Numbers){
 void plot(position* p,int Numbers){
     int tmp[Numbers];
     for(int i = 0;i < Numbers;i++){
-        tmp[i] = (int)(p[i].y)*half_length*2 + (int)(p[i].x);
+        if((int)p[i].x < 2*half_length)
+            tmp[i] = (int)(p[i].y)*half_length*2 + (int)(p[i].x);
+        else
+            tmp[i] = half_length*half_height*4;  //don not appear 
     }
     qsort(tmp,Numbers,sizeof(int),cmp);
 
     int count = 0;
+    while(tmp[count] <= 0) count++;   //start from non-negtive position
     for(int i = 0;i < half_length*half_height*4;i++){
         if((i+1) % (half_length*2) != 0){
             if(i == tmp[count]){ count++; printf("@ ");}
