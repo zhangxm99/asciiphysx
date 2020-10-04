@@ -20,7 +20,7 @@ void coordinatechange(position* p,velocity* v,int Numbers){
 void plot(position* p,int Numbers){
     int tmp[Numbers];
     for(int i = 0;i < Numbers;i++){
-        if((int)p[i].x < 2*half_length)
+        if((int)p[i].x < 2*half_length&&(int)p[i].x > 0)
             tmp[i] = (int)(p[i].y)*half_length*2 + (int)(p[i].x);
         else
             tmp[i] = half_length*half_height*4;  //don not appear 
