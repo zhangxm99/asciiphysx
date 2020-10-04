@@ -32,12 +32,17 @@ int main(void){
         }
     }
 
-    coordinatechange(p,v,Numbers);  //change coordination
+    coordinatechange(p,v,Numbers);  //change coordination from L to 「
 
 
     //Start calculate
     printf("\e[?25l");  //cancel cursor
     int count = 0;
+    int tmpx[Numbers],tmpy[Numbers];  //store last tick's status
+    for(int i = 0;i < Numbers;i++){
+        tmpx[i] = (int)p[i].x;
+        tmpy[i] = (int)p[i].y;
+    }
     while(1){
         CalculateAcceleration(p,mass,a,Numbers);
 
@@ -45,9 +50,16 @@ int main(void){
             CalculateVelocity(&v[i],&a[i]);
             CalculatePosition(&p[i],&v[i]);
         }
-        float time = ++count*delt_t;
-        printf("time: %fs\n",time);
-        plot(p,Numbers);
+        
+        //determine whether to plot
+        for(int i = 0;i < Numbers;i++){
+            if(tmpx[i] != (int)p[i].x || tmpy[i] != (int)p[i].y){
+                        float time = ++count*delt_t;
+                        printf("time: %fs\n",time);
+                        plot(p,Numbers);
+                        break;
+            }
+        }
 
         // for(int i = 0;i < Numbers;i++){
         //     printf("(%f,%f) ",p[i].x,p[i].y);
