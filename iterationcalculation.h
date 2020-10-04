@@ -2,7 +2,7 @@
 #include <math.h>
 #include <stdio.h>
 #define delt_t 0.01
-#define Gvalue 1
+#define Gvalue 6.67e-11
 
 double Force(double M,double m,double r_sqr){
     return Gvalue*M*m/(r_sqr);
